@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Bright theme background and text color */
+  background-color: #f9f9f9;
+  color: #212121;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+
+  /* Bright background for code blocks */
+  background-color: #f0f0f0;
+  color: #2c2c2c;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+a {
+  color: #b58ede;; /* dark purple to match your icons */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button, .btn {
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #b58ede;; /* dark purple background */
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background-color: #b58ede; /* lighter purple on hover */
+  color: white;
+}
+
+.bright-bg {
+  background-color: #fdfdfd; /* very light bright background */
+  color: #222; /* dark text for contrast */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+.main-content.flex-grow-1 {
+  background-color: #e9ecef;
+}
+

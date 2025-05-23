@@ -1,0 +1,52 @@
+/* Bright theme styles */
+
+.login-bg {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.auth-card {
+  padding: 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card h2 {
+  color: #333333;
+  font-weight: 700;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn-primary {
+  background-color: #0D6EFD;
+  border-color: #0D6EFD;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #2575fc;
+  border-color: #2575fc;
+}
+
+.text-center a {
+  color: #0D6EFD;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}

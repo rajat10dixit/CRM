@@ -1,0 +1,79 @@
+.bright-sidebar {
+  width: 220px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding-top: 100px;
+  min-height: 100vh;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.bright-sidebar .nav-link {
+  color: #fff9f9;
+  padding: 12px 20px;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.bright-sidebar .nav-link:hover,
+.bright-sidebar .nav-link.active {
+  background-color: #f0f4ff;
+  color: #0d6efd;
+  border-left: 4px solid #0d6efd;
+}
+.sidebar-logo-placeholder {
+  height: 60px; /* space for your logo */
+  margin-bottom: 15px; /* optional spacing below the logo */
+}
+.sidebar {
+  width: 220px;
+  background-color: #343a40;
+  color: white;
+  padding-top: 1rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar:not(.open) {
+  transform: translateX(-100%);
+}
+
+.sidebar-logo-placeholder {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Toggle Button */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background-color: #343a40;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Always show sidebar on desktop */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0) !important;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
