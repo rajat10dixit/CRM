@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import TopNavbar from './TopNavbar';
@@ -6,18 +6,37 @@ import { FaBars } from 'react-icons/fa';
 import './Layout.css';
 
 const Layout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
 
-  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const handleResize = () => {
+    if (window.innerWidth > 768) {
+      setIsSidebarOpen(true);
+    } else {
+      setIsSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleSidebar = () => {
+    if (window.innerWidth <= 768) {
+      setIsSidebarOpen(!isSidebarOpen);
+    }
+  };
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${isSidebarOpen ? 'sidebar-open' : ''}`}>
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+      <div className="main-content">
         <TopNavbar />
-        <button className="toggle-btn d-md-none" onClick={toggleSidebar}>
-          <FaBars />
-        </button>
+        {window.innerWidth <= 768 && (
+          <button className="toggle-btn d-md-none" onClick={toggleSidebar}>
+            <FaBars />
+          </button>
+        )}
         <div className="page-content">
           <Outlet />
         </div>

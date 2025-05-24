@@ -21,7 +21,7 @@
 .main-content {
   flex: 1;
   min-height: 100vh;
-  margin-left: 220px; /* Always account for sidebar width */
+  margin-left: 220px;
   width: calc(100% - 220px);
   transition: margin-left 0.3s ease;
   position: relative;
@@ -59,22 +59,52 @@
   transition: all 0.3s ease;
 }
 
+/* Hover effect for buttons */
+button,
+.toggle-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover,
+.toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Apply hover effect to general boxes */
+.page-content > div,
+.card,
+.box,
+.panel,
+.section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-content > div:hover,
+.card:hover,
+.box:hover,
+.panel:hover,
+.section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Mobile view */
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0 !important;
     width: 100% !important;
   }
-  
+
   .sidebar {
     transform: translateX(-100%);
   }
-  
+
   .sidebar-open .sidebar {
     transform: translateX(0);
-    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
   }
-  
+
   .toggle-btn {
     display: block;
   }
