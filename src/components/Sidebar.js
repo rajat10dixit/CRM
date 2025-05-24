@@ -1,14 +1,17 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import logo from '../assets/image.png';  // Import the image relative to this file location
 import './Sidebar.css';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
-  const closeSidebar = () => toggleSidebar(false); // Optional: if you want to pass false directly
+  const closeSidebar = () => toggleSidebar(false);
 
   return (
     <Nav className={`flex-column sidebar bright-sidebar ${isOpen ? 'open' : ''}`}>
-      <div className="sidebar-logo-placeholder">Logo</div>
+      <div className="sidebar-logo-placeholder">
+        <img src={logo} alt="CRM Logo" style={{ width: '150px', height: 'auto' }} />
+      </div>
       <Nav.Link as={Link} to="/dashboard" onClick={closeSidebar}>Dashboard</Nav.Link>
       <Nav.Link as={Link} to="/leads" onClick={closeSidebar}>Leads</Nav.Link>
       <Nav.Link as={Link} to="/campaigns" onClick={closeSidebar}>Campaigns</Nav.Link>

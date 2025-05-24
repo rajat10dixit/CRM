@@ -65,6 +65,14 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.sidebar-logo-placeholder img {
+  max-width: 100%;      /* Don't exceed container width */
+  max-height: 60px;     /* Match the placeholder height */
+  object-fit: contain;  /* Keep aspect ratio, scale down if needed */
+  display: block;
+  margin: 0 auto;       /* Center horizontally */
+}
+
 
 /* Always show sidebar on desktop */
 @media (min-width: 768px) {
