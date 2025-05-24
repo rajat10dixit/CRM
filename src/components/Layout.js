@@ -12,7 +12,7 @@ const Layout = () => {
 
   return (
     <div className={`app-container d-flex ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-      <Sidebar isOpen={isSidebarOpen} />
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="main-content flex-grow-1">
         <TopNavbar />
         <div className="toggle-btn d-md-none" onClick={toggleSidebar}>

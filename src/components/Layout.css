@@ -5,6 +5,7 @@
   transition: all 0.3s ease;
 }
 
+/* Sidebar styles */
 .sidebar {
   width: 220px;
   background-color: #343a40;
@@ -12,8 +13,8 @@
   padding-top: 1rem;
   height: 100vh;
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   transition: transform 0.3s ease;
   z-index: 1050;
 }
@@ -26,19 +27,23 @@
   transform: translateX(0);
 }
 
+/* Main content styling */
 .main-content {
   margin-left: 220px;
   width: calc(100% - 220px);
   background-color: #1e1e2f;
   min-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
+/* Page content padding */
 .page-content {
   padding: 1rem;
 }
 
-/* Sidebar closed state */
+/* Responsive - Sidebar closed state */
 .sidebar-closed .sidebar {
   transform: translateX(-100%);
 }
@@ -48,15 +53,47 @@
   width: 100%;
 }
 
-/* Toggle button */
+/* Toggle button (hamburger) */
 .toggle-btn {
   display: none;
   padding: 10px;
   font-size: 24px;
   cursor: pointer;
   color: #0D6EFD;
+  z-index: 1100;
+}
+/* Generic box hover effect */
+.card,
+.stat-card,
+.activity-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
+.card:hover,
+.stat-card:hover,
+.activity-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+/* Base button styling - optional if already defined */
+button,
+.btn {
+  transition: all 0.3s ease;
+}
+
+/* Hover effect on buttons */
+button:hover,
+.btn:hover {
+  background-color: #0b5ed7; /* Slightly darker than Bootstrap primary */
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .toggle-btn {
     display: block;
@@ -65,5 +102,13 @@
   .main-content {
     margin-left: 0 !important;
     width: 100% !important;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-open .sidebar {
+    transform: translateX(0);
   }
 }
