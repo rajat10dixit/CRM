@@ -11,14 +11,14 @@ const Layout = () => {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className={`app-container d-flex ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+    <div className="app-container">
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="main-content flex-grow-1">
+      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <TopNavbar />
-        <div className="toggle-btn d-md-none" onClick={toggleSidebar}>
+        <button className="toggle-btn d-md-none" onClick={toggleSidebar}>
           <FaBars />
-        </div>
-        <div className="page-content p-3">
+        </button>
+        <div className="page-content">
           <Outlet />
         </div>
       </div>

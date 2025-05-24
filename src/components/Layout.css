@@ -1,51 +1,35 @@
 /* Base layout */
 .app-container {
-  height: 100vh;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
 }
 
-/* Sidebar styles */
+/* Sidebar styles - Fixed position */
 .sidebar {
   width: 220px;
-  background-color: #343a40;
-  color: white;
-  padding-top: 1rem;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   transition: transform 0.3s ease;
-  z-index: 1050;
-}
-
-.sidebar.hide {
-  transform: translateX(-100%);
-}
-
-.sidebar.show {
-  transform: translateX(0);
-}
-
-/* Main content styling */
-.main-content {
-  margin-left: 220px;
-  width: calc(100% - 220px);
-  background-color: #1e1e2f;
-  min-height: 100vh;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
-/* Page content padding */
-.page-content {
-  padding: 1rem;
+/* Main content area - Accounts for sidebar */
+.main-content {
+  flex: 1;
+  min-height: 100vh;
+  margin-left: 220px; /* Always account for sidebar width */
+  width: calc(100% - 220px);
+  transition: margin-left 0.3s ease;
+  position: relative;
 }
 
-/* Responsive - Sidebar closed state */
+/* When sidebar is closed */
 .sidebar-closed .sidebar {
-  transform: translateX(-100%);
+  transform: translateX(-220px);
 }
 
 .sidebar-closed .main-content {
@@ -53,62 +37,56 @@
   width: 100%;
 }
 
-/* Toggle button (hamburger) */
-.toggle-btn {
-  display: none;
-  padding: 10px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #0D6EFD;
-  z-index: 1100;
-}
-/* Generic box hover effect */
-.card,
-.stat-card,
-.activity-item {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+/* Page content - prevents overflow */
+.page-content {
+  padding: 20px;
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.card:hover,
-.stat-card:hover,
-.activity-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-/* Base button styling - optional if already defined */
-button,
-.btn {
+/* Toggle button */
+.toggle-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
   transition: all 0.3s ease;
 }
 
-/* Hover effect on buttons */
-button:hover,
-.btn:hover {
-  background-color: #0b5ed7; /* Slightly darker than Bootstrap primary */
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-
-
-/* Mobile adjustments */
+/* Mobile view */
 @media (max-width: 768px) {
-  .toggle-btn {
-    display: block;
-  }
-
   .main-content {
     margin-left: 0 !important;
     width: 100% !important;
   }
-
+  
   .sidebar {
     transform: translateX(-100%);
   }
-
+  
   .sidebar-open .sidebar {
     transform: translateX(0);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
   }
+  
+  .toggle-btn {
+    display: block;
+  }
+}
+
+/* Prevent content from expanding beyond bounds */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensures content stays within visible area */
+.content-container {
+  max-width: 100%;
+  overflow: hidden;
 }

@@ -20,6 +20,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   }, [isOpen, toggleSidebar]);
 
   return (
+     <aside className={`sidebar ${isOpen ? 'show' : 'hide'}`}>
     <Nav className={`flex-column sidebar bright-sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-logo-placeholder">
         <img src={logo} alt="CRM Logo" />
@@ -46,6 +47,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         Settings <i className="fas fa-cog float-end"></i>
       </Nav.Link>
     </Nav>
+    </aside>
   );
 };
 
