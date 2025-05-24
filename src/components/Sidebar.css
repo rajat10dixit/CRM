@@ -20,10 +20,18 @@
   color: #0d6efd;
   border-left: 4px solid #0d6efd;
 }
+
 .sidebar-logo-placeholder {
-  height: 60px; /* space for your logo */
-  margin-bottom: 15px; /* optional spacing below the logo */
+  height: 60px; 
+  margin-bottom: 15px; 
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  position: relative; 
 }
+
 .sidebar {
   width: 220px;
   background-color: #343a40;
@@ -45,26 +53,6 @@
   transform: translateX(-100%);
 }
 
-.sidebar-logo-placeholder {
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-}
-
-/* Toggle Button */
-.sidebar-toggle {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 1100;
-  background-color: #343a40;
-  color: white;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-}
 .sidebar-logo-placeholder img {
   max-width: 100%;      /* Don't exceed container width */
   max-height: 60px;     /* Match the placeholder height */
@@ -73,6 +61,35 @@
   margin: 0 auto;       /* Center horizontally */
 }
 
+/* Toggle Button (hamburger) */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background-color: transparent; /* keep it transparent */
+  color: inherit;                /* inherit color */
+  border: none;
+  font-size: 28px;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Close Button inside sidebar */
+.sidebar-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: inherit;   /* inherit color */
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  user-select: none;
+}
 
 /* Always show sidebar on desktop */
 @media (min-width: 768px) {
@@ -84,4 +101,3 @@
     display: none;
   }
 }
-

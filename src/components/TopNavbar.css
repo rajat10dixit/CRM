@@ -1,0 +1,15 @@
+/* Hide Navbar collapse/toggle section on small screens */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    display: none !important;
+  }
+
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+.profile-toggle {
+  display: flex;
+  align-items: center;
+}
