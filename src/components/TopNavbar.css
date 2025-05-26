@@ -1,4 +1,19 @@
 /* Hide Navbar collapse/toggle section on small screens */
+
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1500; /* Must be lower than .sidebar (2000) but above main content */
+}
+
+.navbar-brand.custom-bold {
+  font-weight: 800; /* or 900 for maximum */
+  font-size: 1.4rem; /* optional: slightly enlarge it */
+  letter-spacing: 0.5px; /* optional: improve readability */
+}
+
+
+
 @media (max-width: 992px) {
   .navbar-collapse {
     display: none !important;

@@ -32,6 +32,7 @@
   position: relative; 
 }
 
+/* Ensure sidebar is above all other content */
 .sidebar {
   width: 220px;
   background-color: #343a40;
@@ -42,7 +43,7 @@
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 1050; /* higher than navbar */
 }
 
 .sidebar.open {
@@ -52,6 +53,35 @@
 .sidebar:not(.open) {
   transform: translateX(-100%);
 }
+
+/* Main content shift on mobile when sidebar is open */
+@media (max-width: 767px) {
+  .main-content.sidebar-open {
+    margin-left: 220px;
+  }
+}
+
+/* Navbar (topbar) should be under z-index 1050 */
+.navbar {
+  z-index: 1000;
+  position: relative;
+}
+
+/* Sidebar toggle button fix */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  font-size: 28px;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
 
 .sidebar-logo-placeholder img {
   max-width: 100%;      /* Don't exceed container width */
@@ -100,4 +130,8 @@
   .sidebar-toggle {
     display: none;
   }
+  .sidebar-close-btn {
+    display: none;
+  }
+  
 }

@@ -1,23 +1,20 @@
-/* Base layout */
 .app-container {
   display: flex;
   min-height: 100vh;
   position: relative;
 }
 
-/* Sidebar styles - Fixed position */
 .sidebar {
   width: 220px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 2000;
   transition: transform 0.3s ease;
   overflow-y: auto;
 }
 
-/* Main content area - Accounts for sidebar */
 .main-content {
   flex: 1;
   min-height: 100vh;
@@ -25,6 +22,7 @@
   width: calc(100% - 220px);
   transition: margin-left 0.3s ease;
   position: relative;
+  z-index: 100;
 }
 
 /* When sidebar is closed */
@@ -37,10 +35,8 @@
   width: 100%;
 }
 
-/* Page content - prevents overflow */
 .page-content {
   padding: 20px;
-  position: relative;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -50,7 +46,7 @@
   position: fixed;
   top: 15px;
   left: 15px;
-  z-index: 1100;
+  z-index: 2100;
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -59,19 +55,11 @@
   transition: all 0.3s ease;
 }
 
-/* Hover effect for buttons */
-button,
-.toggle-btn {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover,
 .toggle-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Apply hover effect to general boxes */
 .page-content > div,
 .card,
 .box,
@@ -115,8 +103,13 @@ button:hover,
   box-sizing: border-box;
 }
 
-/* Ensures content stays within visible area */
-.content-container {
-  max-width: 100%;
-  overflow: hidden;
+/* Overlay backdrop on mobile when sidebar is open */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
 }

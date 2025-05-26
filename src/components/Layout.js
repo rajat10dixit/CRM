@@ -33,7 +33,7 @@ const Layout = () => {
       <div className="main-content">
         <TopNavbar />
         {window.innerWidth <= 768 && (
-          <button className="toggle-btn d-md-none" onClick={toggleSidebar}>
+          <button className="toggle-btn d-md-none "  onClick={toggleSidebar} style={{ color: 'black' }}>
             <FaBars />
           </button>
         )}

@@ -61,8 +61,9 @@ const MainDashboard = () => {
       <Card className="h-100 text-dark">
         <Card.Body>
           <Card.Title>Leads Overview</Card.Title>
-          <div style={{ height: '300px' }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: '300px', display: 'flex', justifyContent: 'flex-start' }}>
+  <ResponsiveContainer width="95%" height="100%">
+
               <BarChart data={leadData}>
                 <XAxis dataKey="name" />
                 <YAxis />
