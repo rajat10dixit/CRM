@@ -1,4 +1,4 @@
-.bright-sidebar {
+ .bright-sidebar {
   width: 220px;
   background-color: #ffffff;
   border-right: 1px solid #e0e0e0;
@@ -34,7 +34,7 @@
 
 /* Ensure sidebar is above all other content */
 .sidebar {
-  width: 220px;
+  width: 250px;
   background-color: #343a40;
   color: white;
   padding-top: 1rem;
@@ -120,6 +120,34 @@
   padding: 0;
   user-select: none;
 }
+/* Add these styles to your existing Sidebar.css */
+.nav-item-with-submenu {
+  width: 100%;
+}
+
+.nav-item-with-submenu > .nav-link {
+  cursor: pointer;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.submenu.show {
+  max-height: 500px; /* Adjust based on your content */
+}
+
+.submenu .nav-link {
+  padding-left: 2rem !important;
+  font-size: 0.9rem;
+}
+
+.submenu .nav-link i {
+  font-size: 0.8rem;
+}
 
 /* Always show sidebar on desktop */
 @media (min-width: 768px) {
@@ -133,5 +161,4 @@
   .sidebar-close-btn {
     display: none;
   }
-  
 }

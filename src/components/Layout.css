@@ -52,29 +52,6 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 5px;
-  transition: all 0.3s ease;
-}
-
-.toggle-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.page-content > div,
-.card,
-.box,
-.panel,
-.section {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.page-content > div:hover,
-.card:hover,
-.box:hover,
-.panel:hover,
-.section:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile view */
@@ -90,7 +67,6 @@
 
   .sidebar-open .sidebar {
     transform: translateX(0);
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
   }
 
   .toggle-btn {
